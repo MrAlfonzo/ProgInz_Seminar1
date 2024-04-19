@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<p>	Produktu dati no JAVA:</p>
+		<p th:text="${myData.getID()}">	 </p>
+		<p th:text="${myData.getTitle()}">	 </p>
+		<p th:text="${myData.getPrice() + ' EUR'}">	 </p>
+		<p th:text="${myData.getDescription()}">	 </p>
+		<p th:text="${myData.getQuantity()}">	 </p>
+		<p th:text="${myData.toString()}">	 </p>
+	</body>
+</html>
