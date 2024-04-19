@@ -29,7 +29,7 @@ public class Product {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "Id")
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO) //autoincrement
 	private int id;
 		
 	@NotNull
@@ -45,7 +45,7 @@ public class Product {
 	
 	@NotNull
 	@Size(min = 4, max = 100)
-	@Pattern(regexp = "[A-ZĒŪĪĀŠĢĶĻŽČŅa-zēūīļķģšāžčņ.!:- ]+")
+	@Pattern(regexp = "[A-ZĒŪĪĀŠĢĶĻŽČŅa-zēūīļķģšāžčņ., ]+")
 	@Column(name = "Description")
 	private String description;
 	

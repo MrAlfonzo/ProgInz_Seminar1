@@ -41,7 +41,7 @@ public class FirstController {
 				new Product("Cimdi", 2.30f, "Silti un pūkaini Cimdi", 4),
 				new Product("Šalle", 5.99f, "Gara un silta Šalle", 5)));
 	
-		model.addAttribute("myData", allProduct);
+		model.addAttribute("mydata", allProduct);
 		return "product-show-all-page";
 }
 	
