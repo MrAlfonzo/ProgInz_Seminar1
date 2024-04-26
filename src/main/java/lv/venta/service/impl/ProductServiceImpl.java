@@ -42,14 +42,26 @@ public class ProductServiceImpl implements IProductCRUDService, IProductFilterin
 	}
 
 	@Override
-	public void update(int id, Product product) {
-		// TODO Auto-generated method stub
+	public void update(int id, Product product) throws Exception {
+		//1. atrast objektu
+		Product productForUpdating = retrieveById(id);
 		
+		//2. rediget objektu JAVAs limeni
+		productForUpdating.setTitle(product.getTitle());
+		productForUpdating.setDescription(product.getDescription());
+		productForUpdating.setPrice(product.getPrice());
+		productForUpdating.setQuantity(product.getQuantity());
+		
+		//3. saglabat redigeto objektu ari repo un DB
+		productRepo.save(productForUpdating); //save strada ka update
 	}
 
 	@Override
-	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+	public void deleteById(int id) throws Exception{
+		//1. atrod produktu kuru grib dzest
+		Product productForDeleting = retrieveById(id);
+		//2. dzesam no repo un DB
+		productRepo.delete(productForDeleting);
 		
 	}
 
