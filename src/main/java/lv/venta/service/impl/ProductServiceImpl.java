@@ -24,15 +24,21 @@ public class ProductServiceImpl implements IProductCRUDService, IProductFilterin
 	}
 
 	@Override
-	public Product retrieveById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product retrieveById(int id) throws Exception {
+		if(id < 0) throw new Exception("Id should be positive");
+		
+		if(productRepo.existsById(id)) {
+		return productRepo.findById(id).get();
+		}
+		else {
+			throw new Exception("Product with this id ("+id+") is not in the system");
+		}
 	}
 
 	@Override
-	public ArrayList<Product> retrieveAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Product> retrieveAll() throws Exception {
+		if(productRepo.count() == 0) throw new Exception("There is no product in the table");
+		return (ArrayList<Product>) productRepo.findAll();
 	}
 
 	@Override
@@ -45,6 +51,30 @@ public class ProductServiceImpl implements IProductCRUDService, IProductFilterin
 	public void deleteById(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<Product> filterByPriceLess(float threshold) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Product> filterByQuantity(int threshold) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Product> filterByTitleOrDescription(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public float calculateTotalValueOfProducts() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	

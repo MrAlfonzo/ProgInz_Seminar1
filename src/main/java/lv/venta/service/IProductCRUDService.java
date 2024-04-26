@@ -9,9 +9,9 @@ public interface IProductCRUDService {
 	
 	public abstract void create(Product product);
 	
-	public abstract Product retrieveById(int id);
+	public abstract Product retrieveById(int id) throws Exception;
 	
-	public abstract ArrayList<Product> retrieveAll();
+	public abstract ArrayList<Product> retrieveAll() throws Exception;
 	
 	public abstract void update(int id, Product product);
 	
