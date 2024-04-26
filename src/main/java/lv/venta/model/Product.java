@@ -34,22 +34,22 @@ public class Product {
 		
 	@NotNull
 	@Size(min = 3, max = 50)
-	@Pattern(regexp = "[A-ZĒŪĪĀŠĢĶĻŽČŅa-zēūīļķģšāžčņ ]+")
+	@Pattern(regexp = "[A-ZĒŪĪĻĶĢŠĀŽČŅa-zēūīļķģšāžčņ ]+")
 	@Column(name = "Title")
 	private String title;
 	
-	@Max(10000)
+	@Max(1000)
 	@Min(0)
 	@Column(name = "Price")
 	private float price;
 	
 	@NotNull
 	@Size(min = 4, max = 100)
-	@Pattern(regexp = "[A-ZĒŪĪĀŠĢĶĻŽČŅa-zēūīļķģšāžčņ., ]+")
+	@Pattern(regexp = "[A-ZĒŪĪĻĶĢŠĀŽČŅa-zēūīļķģšāžčņ.!: ]+")
 	@Column(name = "Description")
 	private String description;
 	
-	@Max(100)
+	@Max(500)
 	@Min(0)
 	@Column(name = "Quantity")
 	private int quantity;
@@ -60,7 +60,6 @@ public class Product {
 		setTitle(title);
 		setPrice(price);
 		setDescription(description);
-		setQuantity(quantity);
 	}
 
 }

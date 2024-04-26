@@ -22,14 +22,14 @@ public class FirstController {
 	Random random = new Random();
 	@GetMapping("/hello/msg") //localhost:8080/hello/msg
 	public String getHelloMsg(Model model) {
-		model.addAttribute("myData", "Zina no Alfreda ->" + random.nextInt(0, 77));
+		model.addAttribute("mydata", "Zina no Alfreda ->" + random.nextInt(0, 77));
 		return "hello-msg-page";
 	}
 	
 	@GetMapping("/product/test") // localhost:8080/product/test
 	public String getProductTest(Model model) {
 		Product product = new Product("Zeķes", 3.50f, "Siltas un pūkainas zeķes", 1);
-		model.addAttribute("myData", product);
+		model.addAttribute("mydata", product);
 		return "product-show-one-page"; //tiek paradita product-show-one-page.html lapa
 	}
 	
@@ -37,9 +37,9 @@ public class FirstController {
 	public String getProductTestAll (Model model) {
 		ArrayList<Product> allProduct = new ArrayList<> (
 				Arrays.asList(
-				new Product("Zeķes", 3.50f, "Siltas un pūkainas zeķes", 1),
-				new Product("Cimdi", 2.30f, "Silti un pūkaini Cimdi", 4),
-				new Product("Šalle", 5.99f, "Gara un silta Šalle", 5)));
+						new Product("Zeķes", 3.50f, "Siltas un pūkainas zeķes", 1),
+						new Product("Cimdi", 2.30f, "Silti un pūkaini Cimdi", 4),
+						new Product("Šalle", 5.99f, "Gara un silta Šalle", 5)));
 	
 		model.addAttribute("mydata", allProduct);
 		return "product-show-all-page";
