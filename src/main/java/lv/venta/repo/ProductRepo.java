@@ -23,7 +23,7 @@ public interface ProductRepo extends CrudRepository<Product, Integer>{
 	
 	//public abstract pec noklusejuma
 	//SELECT * FROM product_table WHERE UPPER(title) LIKE UPPER(1.arguments) OR UPPER(description) LIKE UPPER(2.arguments);
-	ArrayList<Product> findByTitleIgnoreCaseLikeOrDescriptionIgnoreCaseLike(String phrase, String phrase2);
+	ArrayList<Product> findByTitleIgnoreCaseLikeOrDescriptionIgnoreCaseContains(String phrase, String phrase2);
 
 	//public abstract pec noklusejuma
 	//bet vaicajumu veidojam pashi

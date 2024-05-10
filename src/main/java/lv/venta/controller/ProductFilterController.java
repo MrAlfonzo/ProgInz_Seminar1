@@ -30,8 +30,44 @@ public class ProductFilterController {
 			model.addAttribute("mydata", e.getMessage());
 			return "error-page";
 		}
-		
-		
 	}
 	
+	@GetMapping("/quantity/{param}")
+	public String getProductFilteredByQuantity(@PathVariable("param") int param, Model model) {
+		try {
+			ArrayList<Product> result = filterService.filterByQuantity(param);
+			model.addAttribute("mydata", result);
+			model.addAttribute("msg", "Products filtered by quantity");
+			return "product-show-all-page";
+		} catch (Exception e) {
+			model.addAttribute("mydata", e.getMessage());
+			return "error-page";
+		}
+	}
+	
+	@GetMapping("/text/{param}")
+	public String getProductFilteredByTitleOrDescription(@PathVariable("param") String param, Model model) {
+		try {
+			ArrayList<Product> result = filterService.filterByTitleOrDescription(param);
+			model.addAttribute("mydata", result);
+			model.addAttribute("msg", "Products filtered by phrase");
+			return "product-show-all-page";
+		} catch (Exception e) {
+			model.addAttribute("mydata", e.getMessage());
+			return "error-page";
+		}
+	}
+	
+	@GetMapping("/stat/total")
+	public String getProductFilteredStatTotal(Model model) {
+		try {
+			float result = filterService.calculateTotalValueOfProducts();
+			model.addAttribute("mydata", "Total " + result + " eur");
+			return "hello-msg-page";
+		} catch (Exception e) {
+			model.addAttribute("mydata", e.getMessage());
+			return "error-page";
+		}
+		
+	}
 }
