@@ -2,9 +2,9 @@
 	
 <body>
 	
-	<p>Visu produktu dati no JAVA:</p>
+	<p th:text="${msg}"></p>
 	
-	<table>
+	<table border="1">
 		<tr th:each="tempP : ${mydata}">
 			<td th:text="${tempP.getId()}" ></td>
 			<td th:text="${tempP.getTitle()}">   </td>

@@ -28,6 +28,7 @@ public class ProductCRUDController {
 		try {
 			ArrayList<Product> allProducts = crudService.retrieveAll();
 			model.addAttribute("mydata", allProducts);
+			model.addAttribute("msg", "Products filtered by price");
 			return "product-show-all-page";// tiks parādīta producty-show-all-page.html ar visiem produktiem
 		} catch (Exception e) {
 			model.addAttribute("mydata", e.getMessage());
